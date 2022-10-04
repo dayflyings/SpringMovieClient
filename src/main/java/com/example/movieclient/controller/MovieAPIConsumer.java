@@ -15,10 +15,9 @@ public class MovieAPIConsumer {
     @Autowired
     private RestTemplate restTemplate;
 
-    @GetMapping("/movies/{id}")
+    @GetMapping("/movie/{id}")
     public Object getMoviesFromAPI(@PathVariable Long id) {
-        String url = "http://localhost:8080/movie/" + id;
-        Object movie = restTemplate.getForObject(url, Object.class);
-        return movie;
+        String url = "http://localhost:8080/api/movie/" + id + "/";
+        return restTemplate.getForObject(url, Object.class);
     }
 }
